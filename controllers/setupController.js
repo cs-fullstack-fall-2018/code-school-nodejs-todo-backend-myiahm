@@ -13,12 +13,12 @@ module.exports = function(app) {
                isDone: false
            },
            {
-               username: 'testuser',
+               username: 'testuser2',
                todo: 'Feed dog',
                isDone: false
            },
            {
-               username: 'testuser',
+               username: 'testuser3',
                todo: 'Learn Node',
                isDone: false
            }
