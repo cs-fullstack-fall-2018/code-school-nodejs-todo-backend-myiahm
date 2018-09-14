@@ -10,7 +10,7 @@ module.exports = function (app) {
     app.use(bodyParser.urlencoded({extended: true})); // Parse out any JSON from body and handle URL encoded data
 
     //  Add a method to get all todos for a particular User (uname)
-    app.get('/api/todos/:uname', function (req, res) {
+    app.get('/api/todo/:uname', function (req, res) {
 
         // ROUTE: GET a user's list of todos
         Todos.find({username: req.params.uname}, function (err, todos) { //Use the find method on the data model to search DB
@@ -75,7 +75,7 @@ module.exports = function (app) {
     // ROUTE: DELETE an existing todo item by its ID
     app.delete('/api/todo', function (req, res) {
 
-        Todos.findOneAndDelete(req.body.id, function (err) {
+        Todos.findByIdAndRemove(req.body.id, function (err) {
             if (err) {
                 throw err; // If we get an error then bail
             }

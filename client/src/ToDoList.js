@@ -1,14 +1,34 @@
 import React, {Component} from 'react'
 
-class ToDoList extends Component{
-    render(){
-        return(
-            <div>
+class ToDoList extends Component {
+    forEachFunction() {
+        this.props.arr.map(
+            eachItem => {
 
-                <h2>{this.props.arr[3].username} has to {this.props.arr[3].todo} it is {this.props.arr[3].isDone}</h2>
+        return (
+            <div>
+                <p>{eachItem.username}</p>
+                <p>{eachItem.todo}</p>
+                <p>{eachItem.isDone}</p>
+                <button onClick={() => this.props.deleteFunction(eachItem._id)}>Delete</button>
+                <hr/>
             </div>
-        );
+
+        )
     }
+        )
 }
 
-export default ToDoList;
+render()
+{
+
+
+    return (
+        <div>
+            <h2> {this.forEachFunction}</h2>
+        </div>
+    );
+
+
+
+export default ToDoList
