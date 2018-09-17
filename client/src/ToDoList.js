@@ -1,34 +1,44 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 
-class ToDoList extends Component {
-    forEachFunction() {
-        this.props.arr.map(
-            eachItem => {
 
+
+class TodoList extends Component {
+
+    forEachItem() {
+
+        var yes = this.props.arr.map(
+            EachItem => {
+                var state;
+                if (EachItem.isDone === true) {
+                    state = false
+                } else {
+                    state = true
+                }
+                return (
+
+                    <div>
+                        <p>{EachItem._id}</p>
+                        <p>{EachItem.username}</p>
+                        <p>{EachItem.todo}</p>
+                        <p>{state.toString()}</p>
+                        <button onClick={() => this.props.deletion(EachItem._id)}>Delete</button>
+                    </div>
+
+                )
+            }
+        );
+        return yes
+    }
+    render() {
+        //console.log(this.props.arr);
+        var stuff = this.forEachItem()
         return (
             <div>
-                <p>{eachItem.username}</p>
-                <p>{eachItem.todo}</p>
-                <p>{eachItem.isDone}</p>
-                <button onClick={() => this.props.deleteFunction(eachItem._id)}>Delete</button>
-                <hr/>
+                <h2>{stuff}</h2>
             </div>
-
-        )
+        );
     }
-        )
+
 }
 
-render()
-{
-
-
-    return (
-        <div>
-            <h2> {this.forEachFunction}</h2>
-        </div>
-    );
-
-
-
-export default ToDoList
+export default TodoList;
